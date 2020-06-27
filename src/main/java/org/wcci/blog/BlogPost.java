@@ -8,20 +8,28 @@ public class BlogPost {
     @Id
     @GeneratedValue
     private Long id;
-    private String author;
+    @ManyToOne
+    private Author author;
     private String championName;
     private String championDescription;
-    private String nation;
     @ManyToOne
     private Category category;
 
     protected BlogPost(){}
 
-    public BlogPost(String author, String nation, String championName, String championDescription) {
+    public BlogPost(Author author, String championName, String championDescription, Category category) {
         this.author = author;
-        this.nation = nation;
         this.championName = championName;
         this.championDescription = championDescription;
+        this.category = category;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     public String getChampionName() {
@@ -30,10 +38,6 @@ public class BlogPost {
 
     public String getChampionDescription() {
         return championDescription;
-    }
-
-    public String getAuthor() {
-        return author;
     }
 
     public Long getId() {
@@ -61,7 +65,7 @@ public class BlogPost {
     public String toString() {
         return "BlogPost{" +
                 "id=" + id +
-                ", author='" + author + '\'' +
+                ", author=" + author +
                 ", championName='" + championName + '\'' +
                 ", championDescription='" + championDescription + '\'' +
                 ", category=" + category +

@@ -14,13 +14,17 @@ public class JPAWiringTest {
     @Autowired
     BlogPostRepository blogPostRepo;
     @Autowired
+    AuthorRepository authorRepo;
+    @Autowired
     TestEntityManager entityManager;
 
     @Test
     public void reviewsShouldHaveACategory(){
+        Author testAuthor = new Author("Tom");
+        authorRepo.save(testAuthor);
         Category testCategory = new Category("Name of Nation", "Description of Nation");
-        BlogPost testBlog = new BlogPost("Van","Luxanna Crownguard", "Lux's Description", "Demacia");
         categoryRepo.save(testCategory);
+        BlogPost testBlog = new BlogPost(testAuthor,"Luxanna Crownguard", "Lux's Description", testCategory);
         blogPostRepo.save(testBlog);
 
         entityManager.flush();
