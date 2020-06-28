@@ -3,4 +3,6 @@ package org.wcci.blog;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CategoryRepository extends CrudRepository <Category, Long> {
+
+    Category categoryByName(String name);
 }

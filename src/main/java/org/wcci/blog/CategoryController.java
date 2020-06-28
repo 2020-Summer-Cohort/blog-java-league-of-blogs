@@ -11,4 +11,8 @@ public class CategoryController {
     public void displayAllCategories(Model model) {
         model.addAttribute("categories",categoryRepo.findAll());
     }
+
+    public void showSingleBlog(String name, Model model) {
+       // model.addAttribute("categories",);
+    }
 }
