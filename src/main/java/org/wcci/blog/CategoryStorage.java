@@ -18,4 +18,8 @@ public class CategoryStorage {
     public Category categoryByName(String name) {
         return categoryRepo.categoryByName(name);
     }
+
+    public void save(Category category){
+        categoryRepo.save(category);
+    }
 }

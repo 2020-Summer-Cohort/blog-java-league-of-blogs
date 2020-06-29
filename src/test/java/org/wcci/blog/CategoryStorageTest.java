@@ -1,12 +1,14 @@
 package org.wcci.blog;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+
 
 public class CategoryStorageTest {
 
     TestEntityManager entityManager;
-    private CategoryRepository categoryRepo;
+    CategoryRepository categoryRepo;
 
     @Test
     public void createCategoryStorage(){
@@ -16,13 +18,12 @@ public class CategoryStorageTest {
     @Test
     public void findAllCategories(){
         CategoryStorage storageTest = new CategoryStorage(categoryRepo);
-        Category underTest = new Category();
+        Category underTest = new Category("Name of Nation", "Description of Nation" );
+
         categoryRepo.save(underTest);
 
-        entityManager.flush();
-        entityManager.clear();
-
         storageTest.getAllCategories();
+
     }
 
     @Test

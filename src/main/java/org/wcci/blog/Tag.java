@@ -1,10 +1,10 @@
 package org.wcci.blog;
 
-public class Tags {
+public class Tag {
 
     private String tag;
 
-    public Tags(String tag){
+    public Tag(String tag){
         this.tag=tag;
     }
 

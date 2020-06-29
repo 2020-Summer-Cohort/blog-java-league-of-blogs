@@ -36,9 +36,6 @@ public class JPAWiringTest {
         assertThat(retrieveBlogPost).isEqualTo(testBlog);
         assertThat(retrieveCategory.getBlogPost()).containsExactly(testBlog);
 
-
-
-
     }
 
 
