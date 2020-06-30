@@ -3,7 +3,9 @@ package org.wcci.blog;
 import org.springframework.ui.Model;
 
 public class CategoryController {
+
     private CategoryRepository categoryRepo;
+
     public CategoryController(CategoryRepository categoryRepo){
         this.categoryRepo = categoryRepo;
     }

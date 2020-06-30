@@ -11,15 +11,20 @@ public class Author {
     @GeneratedValue
     private Long id;
     private String name;
+    private String description;
 
     protected Author(){}
 
-    public Author(String name) {
+    public Author(String name, String description) {
         this.name = name;
+        this.description = description;
     }
 
     public String getName() {
         return name;
+    }
+    public String getDescription(){
+        return description;
     }
 
     @Override

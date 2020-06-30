@@ -2,6 +2,7 @@ package org.wcci.blog;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Optional;
 
 @Entity
 public class BlogPost {

@@ -1,5 +1,6 @@
 package org.wcci.blog;
 
+
 public class BlogPostStorage {
 
     BlogPostRepository blogPostRepo;
@@ -14,5 +15,9 @@ public class BlogPostStorage {
 
     public Iterable<BlogPost> findAllBlogs() {
         return blogPostRepo.findAll();
+    }
+
+    public BlogPost blogPostByName(String name) {
+        return blogPostRepo.blogPostByName(name);
     }
 }

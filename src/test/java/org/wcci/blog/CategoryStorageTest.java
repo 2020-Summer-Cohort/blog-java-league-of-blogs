@@ -1,13 +1,10 @@
 package org.wcci.blog;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 
 public class CategoryStorageTest {
 
-    TestEntityManager entityManager;
     CategoryRepository categoryRepo;
 
     @Test

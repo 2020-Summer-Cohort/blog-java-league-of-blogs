@@ -3,6 +3,7 @@ package org.wcci.blog;
 import com.sun.xml.bind.v2.runtime.output.SAXOutput;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import javax.persistence.EntityManager;
 import java.util.Collections;
@@ -33,5 +34,10 @@ public class BlogPostStorageTest {
         when(blogPostRepo.findAll()).thenReturn(Collections.EMPTY_LIST);
         Iterable<BlogPost> allPosts = underTest.findAllBlogs();
         assertThat(allPosts).isEmpty();
+    }
+    @Test
+    public void findSpecificBlog(BlogPost blogPost, BlogPostStorage blogStorage){
+        BlogPost singlePost = underTest.getSpecificBlog();
+        //assertThat(singlePost) = underTest.getSpecificBlog();
     }
 }
