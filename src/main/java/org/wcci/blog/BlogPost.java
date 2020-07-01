@@ -1,8 +1,7 @@
 package org.wcci.blog;
 
 import javax.persistence.*;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
 
 @Entity
 public class BlogPost {
@@ -15,14 +14,17 @@ public class BlogPost {
     private String championDescription;
     @ManyToOne
     private Category category;
+    @ManyToMany
+    private Collection<Tag> tags;
 
     protected BlogPost(){}
 
-    public BlogPost(Author author, String championName, String championDescription, Category category) {
+    public BlogPost(Author author, String championName, String championDescription, Category category, Tag ...tags) {
         this.author = author;
         this.championName = championName;
         this.championDescription = championDescription;
         this.category = category;
+        this.tags = new ArrayList<>(Arrays.asList(tags));
     }
 
     public Author getAuthor() {
