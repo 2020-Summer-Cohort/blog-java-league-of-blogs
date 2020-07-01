@@ -27,7 +27,7 @@ public class BlogPostController {
         model.addAttribute("BlogPost", blogPostStorage.blogPostByName(name));
         model.addAttribute("Author", authorRepo.findAll());
         model.addAttribute("Tag", tagRepo.findAll());
-        return "BlogPost-template";
+        return "blogPost-template";
     }
 
 

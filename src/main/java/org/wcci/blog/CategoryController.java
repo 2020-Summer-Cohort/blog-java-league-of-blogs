@@ -23,7 +23,7 @@ public class CategoryController {
     @RequestMapping
     public String displayAllCategories(Model model) {
         model.addAttribute("categories",categoryStorage.getAllCategories());
-        return "HomePage-template";
+        return "homePage-template";
     }
 
 }
