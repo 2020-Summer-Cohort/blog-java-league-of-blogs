@@ -23,8 +23,10 @@ public class BlogPostController {
 
     @RequestMapping("blogs/{name}")
     public String showSingleBlog (@PathVariable String name, Model model){
-        model.addAllAttributes("Category", categoryRepo.findAll());
-        model.addAllAttributes("BlogPost", blogPostStorage.blogPostByName(name));
+        model.addAttribute("Category", categoryRepo.findAll());
+        model.addAttribute("BlogPost", blogPostStorage.blogPostByName(name));
+        model.addAttribute("Author", authorRepo.findAll());
+        model.addAttribute("Tag", tagRepo.findAll());
         return "BlogPost-template";
     }
 

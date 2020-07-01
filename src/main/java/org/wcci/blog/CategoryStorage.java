@@ -22,4 +22,5 @@ public class CategoryStorage {
     public void save(Category category){
         categoryRepo.save(category);
     }
+
 }
