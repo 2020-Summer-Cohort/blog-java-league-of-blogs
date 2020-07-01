@@ -16,8 +16,10 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Author van = new Author("Van");
+        Author van = new Author("Van", "Van's Description");
+        Author ban = new Author("Ban", "Ban's Description");
         authorRepo.save(van);
+        authorRepo.save(ban);
 
         Category demacia = new Category("Demacia", "Demacia Description");
         Category piltover = new Category("Piltover", "Piltover Description");
@@ -25,8 +27,8 @@ public class Populator implements CommandLineRunner {
         categoryRepo.save(demacia);
         categoryRepo.save(piltover);
 
-        BlogPost lux = new BlogPost(van, "Luxanna Crownguard", "Lux's Description", demacia);
-        BlogPost jinx = new BlogPost(van, "Jinx, The Loose Cannon", "Jinx Description", piltover);
+        BlogPost lux = new BlogPost("lux",van, "Luxanna Crownguard", "Lux's Description", demacia);
+        BlogPost jinx = new BlogPost("jinx",van, "Jinx, The Loose Cannon", "Jinx Description", piltover);
 
         blogPostRepo.save(lux);
         blogPostRepo.save(jinx);

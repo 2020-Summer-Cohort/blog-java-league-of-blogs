@@ -20,11 +20,11 @@ public class JPAWiringTest {
 
     @Test
     public void reviewsShouldHaveACategory(){
-        Author testAuthor = new Author("Tom");
+        Author testAuthor = new Author("Tom", "Description");
         authorRepo.save(testAuthor);
         Category testCategory = new Category("Name of Nation", "Description of Nation");
         categoryRepo.save(testCategory);
-        BlogPost testBlog = new BlogPost(testAuthor,"Luxanna Crownguard", "Lux's Description", testCategory);
+        BlogPost testBlog = new BlogPost("testBlog",testAuthor,"Luxanna Crownguard", "Lux's Description", testCategory);
         blogPostRepo.save(testBlog);
 
         entityManager.flush();

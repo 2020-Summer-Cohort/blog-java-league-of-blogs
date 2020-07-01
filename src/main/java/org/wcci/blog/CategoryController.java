@@ -1,9 +1,11 @@
 package org.wcci.blog;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class CategoryController {
 
     private CategoryStorage categoryStorage;
@@ -16,7 +18,7 @@ public class CategoryController {
 
     @RequestMapping("Category/{name}")
     public String displaySingleCategory(@PathVariable String name, Model model){
-        model.addAttribute("categories", categoryStorage.categoryByName(name));
+        model.addAttribute("categories", categoryStorage.findCategoryByName(name));
         return "Category-template";
     }
 

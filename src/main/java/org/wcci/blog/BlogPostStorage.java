@@ -19,7 +19,7 @@ public class BlogPostStorage {
         return blogPostRepo.findAll();
     }
 
-    public BlogPost blogPostByName(String name) {
-        return blogPostRepo.blogPostByName(name);
+    public BlogPost findBlogPostByName(String name) {
+        return blogPostRepo.findByName(name);
     }
 }

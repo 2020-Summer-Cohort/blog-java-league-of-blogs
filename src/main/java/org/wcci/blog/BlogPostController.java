@@ -24,7 +24,7 @@ public class BlogPostController {
     @RequestMapping("blogs/{name}")
     public String showSingleBlog (@PathVariable String name, Model model){
         model.addAttribute("Category", categoryRepo.findAll());
-        model.addAttribute("BlogPost", blogPostStorage.blogPostByName(name));
+        model.addAttribute("BlogPost", blogPostStorage.findBlogPostByName(name));
         model.addAttribute("Author", authorRepo.findAll());
         model.addAttribute("Tag", tagRepo.findAll());
         return "blogPost-template";

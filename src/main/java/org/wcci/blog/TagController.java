@@ -20,9 +20,9 @@ public class TagController {
     }
 
     @RequestMapping("tags/{tags}")
-    public String displaySingleTag(@PathVariable String tag, Model model){
+    public String displaySingleTag(@PathVariable String tags, Model model){
         model.addAttribute("category", categoryRepo.findAll());
-        model.addAttribute("tags", tagStorage.findTagByTag(tag));
+        model.addAttribute("tags", tagStorage.findTagByTag(tags));
         return "tag-template";
     }
 }

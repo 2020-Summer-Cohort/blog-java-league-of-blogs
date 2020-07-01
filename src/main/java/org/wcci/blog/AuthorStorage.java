@@ -15,7 +15,7 @@ public class AuthorStorage {
         return authorRepo.findAll();
     }
 
-    public Author authorByName(String name) {
-        return authorRepo.authorByName(name);
+    public Author findAuthorByName(String name) {
+        return authorRepo.findAuthorByName(name);
     }
 }

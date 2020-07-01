@@ -27,7 +27,7 @@ public class CategoryStorageTest {
     public void getSpecificCategory(){
         CategoryStorage storageTest = new CategoryStorage(categoryRepo);
         String name = "Demacia";
-        storageTest.categoryByName(name);
+        storageTest.findCategoryByName(name);
 
 
     }

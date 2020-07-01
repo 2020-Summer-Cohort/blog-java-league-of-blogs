@@ -30,9 +30,4 @@ public class BlogPostStorageTest {
         Iterable<BlogPost> allPosts = underTest.findAllBlogs();
         assertThat(allPosts).isEmpty();
     }
-    @Test
-    public void findSpecificBlog(BlogPost blogPost, BlogPostStorage blogStorage){
-        BlogPost singlePost = underTest.getSpecificBlog();
-        //assertThat(singlePost) = underTest.getSpecificBlog();
-    }
 }

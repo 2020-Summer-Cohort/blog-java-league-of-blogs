@@ -20,7 +20,7 @@ public class AuthorController {
 
     @RequestMapping("author/{name}")
     public String displayAuthor(@PathVariable String name, Model model){
-        model.addAttribute(authorStorage.authorByName(name));
+        model.addAttribute(authorStorage.findAuthorByName(name));
         return "author-template";
 
     }

@@ -15,8 +15,8 @@ public class CategoryStorage {
         return categoryRepo.findAll();
     }
 
-    public Category categoryByName(String name) {
-        return categoryRepo.categoryByName(name);
+    public Category findCategoryByName(String name) {
+        return categoryRepo.findCategoryByName(name);
     }
 
     public void save(Category category){
