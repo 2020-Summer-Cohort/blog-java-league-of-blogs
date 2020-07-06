@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+</head>
+<body>
+<h1>Welcome to the League Blog</h1>
+<p>Greeting</p>
+
+<h2>Nations</h2>
+<nav>
+<ul>
+    <li th:each="nations: ${categories}">
+        <a th:href="@{'/category/' +${nations.name}}"
+           th:text="${nations.name}"></a>
+    </li>
+</ul>
+</nav>
+<h2>Tags</h2>
+<nav>
+<ul>
+    <li th:each="iter: ${tags}">
+        <a th:href="@{'/tags/' +${iter.tag}}"
+           th:text="${iter.tag}"></a>
+    </li>
+</ul>
+</nav>
+<h2>Authors</h2>
+<nav>
+<ul>
+    <li th:each="iter: ${authors}">
+        <a th:href="@{'/authors/' +${iter.name}}"
+           th:text="${iter.name}"></a>
+
+    </li>
+</ul>
+</nav>
+</body>
+<footer>
+    <p>copyright</p>
+</footer>
+</html>

@@ -10,21 +10,31 @@ public class CategoryController {
 
     private CategoryStorage categoryStorage;
     private CategoryRepository categoryRepo;
+    private TagStorage tagStorage;
+    private AuthorStorage authorStorage;
+    private BlogPostStorage blogPostStorage;
 
-    public CategoryController(CategoryStorage categoryStorage, CategoryRepository categoryRepo){
+    public CategoryController(CategoryStorage categoryStorage, CategoryRepository categoryRepo, TagStorage tagStorage, AuthorStorage authorStorage, BlogPostStorage blogPostStorage){
         this.categoryStorage = categoryStorage;
         this.categoryRepo = categoryRepo;
+        this.tagStorage = tagStorage;
+        this.authorStorage = authorStorage;
+        this.blogPostStorage = blogPostStorage;
     }
 
-    @RequestMapping("Category/{name}")
+    @RequestMapping("category/{name}")
     public String displaySingleCategory(@PathVariable String name, Model model){
         model.addAttribute("categories", categoryStorage.findCategoryByName(name));
-        return "Category-template";
+        model.addAttribute("tags", tagStorage.findAllTags());
+        model.addAttribute("blogs", blogPostStorage.findAllBlogs());
+        return "category-template";
     }
 
-    @RequestMapping
+    @RequestMapping("categories")
     public String displayAllCategories(Model model) {
         model.addAttribute("categories",categoryStorage.getAllCategories());
+        model.addAttribute("tags", tagStorage.findAllTags());
+        model.addAttribute("authors", authorStorage.findAllAuthors());
         return "homePage-template";
     }
 

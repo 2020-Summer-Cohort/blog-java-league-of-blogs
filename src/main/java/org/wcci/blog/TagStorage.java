@@ -11,7 +11,7 @@ public class TagStorage {
         this.tagRepo = tagRepo;
     }
 
-    public Iterable<Tag> getTags() {
+    public Iterable<Tag> findAllTags() {
         return tagRepo.findAll();
     }
     public Tag findTagByTag (String tag){

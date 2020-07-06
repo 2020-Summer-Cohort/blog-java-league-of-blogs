@@ -21,7 +21,7 @@ public class BlogPostController {
         this.tagRepo = tagRepo;
     }
 
-    @RequestMapping("blogs/{name}")
+    @RequestMapping("blog/{name}")
     public String showSingleBlog (@PathVariable String name, Model model){
         model.addAttribute("Category", categoryRepo.findAll());
         model.addAttribute("BlogPost", blogPostStorage.findBlogPostByName(name));

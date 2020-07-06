@@ -7,16 +7,16 @@
     <title>Blog Post</title>
 </head>
 <body>
-<h1>Luxanna Crownguard</h1>
+<h1 id="blogPost-header" th:text="${BlogPost.name}">BlogPost Name</h1>
 
-<h2>Tags associated with Luxanna Crownguard</h2>
+<h2>
+    Tags associated with <span th:text="${BlogPost.name}"></span>
+</h2>
 <ul>
     <li><a href="Tags.html">Demacia</a></li>
     <li><a href="Tags.html">Mage</a></li>
 </ul>
 
-<p>Champion type: Mage</p>
-<P>Champion Position: Mid</P>
 
 <p>Champion Description:
     Luxanna Crownguard is a Demacian Noble who has magic powers based on
