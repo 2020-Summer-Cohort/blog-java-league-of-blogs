@@ -25,7 +25,7 @@ public class BlogPostController {
     public String showSingleBlog (@PathVariable String name, Model model){
         model.addAttribute("Category", categoryRepo.findAll());
         model.addAttribute("BlogPost", blogPostStorage.findBlogPostByName(name));
-        model.addAttribute("Author", authorRepo.findAll());
+        model.addAttribute("Author", authorRepo.findAuthorByName(name));
         model.addAttribute("Tag", tagRepo.findAll());
         return "blogPost-template";
     }

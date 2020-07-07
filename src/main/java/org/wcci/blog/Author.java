@@ -1,8 +1,7 @@
 package org.wcci.blog;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 import java.util.Objects;
 
 @Entity
@@ -25,6 +24,9 @@ public class Author {
     }
     public String getDescription(){
         return description;
+    }
+    public Long getId() {
+        return id;
     }
 
     @Override

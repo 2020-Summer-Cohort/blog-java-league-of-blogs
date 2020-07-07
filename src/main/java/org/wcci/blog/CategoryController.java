@@ -24,9 +24,8 @@ public class CategoryController {
 
     @RequestMapping("category/{name}")
     public String displaySingleCategory(@PathVariable String name, Model model){
-        model.addAttribute("categories", categoryStorage.findCategoryByName(name));
-        model.addAttribute("tags", tagStorage.findAllTags());
-        model.addAttribute("blogs", blogPostStorage.findAllBlogs());
+        model.addAttribute("category", categoryStorage.findCategoryByName(name));
+        model.addAttribute("tag", tagStorage.findTagByTag(name));
         return "category-template";
     }
 

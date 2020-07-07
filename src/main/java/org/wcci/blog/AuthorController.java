@@ -10,17 +10,18 @@ public class AuthorController {
 
     private AuthorStorage authorStorage;
     private AuthorRepository authorRepo;
-    private BlogPostRepository blogRepo;
+    private BlogPostStorage blogStorage;
 
-    public AuthorController(AuthorStorage authorStorage, AuthorRepository authorRepo, BlogPostRepository blogRepo) {
+    public AuthorController(AuthorStorage authorStorage, AuthorRepository authorRepo, BlogPostStorage blogStorage) {
         this.authorStorage = authorStorage;
         this.authorRepo = authorRepo;
-        this.blogRepo = blogRepo;
+        this.blogStorage = blogStorage;
     }
 
     @RequestMapping("author/{name}")
     public String displayAuthor(@PathVariable String name, Model model){
         model.addAttribute(authorStorage.findAuthorByName(name));
+        model.addAttribute(blogStorage.findAllBlogs());
         return "author-template";
 
     }

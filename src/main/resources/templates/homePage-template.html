@@ -32,7 +32,7 @@
 <nav>
 <ul>
     <li th:each="iter: ${authors}">
-        <a th:href="@{'/authors/' +${iter.name}}"
+        <a th:href="@{'/author/' +${iter.name}}"
            th:text="${iter.name}"></a>
 
     </li>
