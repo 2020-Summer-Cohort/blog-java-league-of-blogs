@@ -10,7 +10,7 @@ public class BlogPost {
     private Long id;
     private String name;
     @ManyToOne
-    private Author author;
+    private Author authorName;
     private String championName;
     private String championDescription;
     @ManyToOne
@@ -20,9 +20,9 @@ public class BlogPost {
 
     protected BlogPost(){}
 
-    public BlogPost(String name, Author author, String championName, String championDescription, Category category, Tag ...tags) {
+    public BlogPost(String name, Author authorName, String championName, String championDescription, Category category, Tag ...tags) {
         this.name = name;
-        this.author = author;
+        this.authorName = authorName;
         this.championName = championName;
         this.championDescription = championDescription;
         this.category = category;
@@ -38,15 +38,11 @@ public class BlogPost {
     }
 
     public Author getAuthor() {
-        return author;
+        return authorName;
     }
 
     public Category getCategory() {
         return category;
-    }
-
-    public String getChampionName() {
-        return championName;
     }
 
     public String getChampionDescription() {
@@ -64,7 +60,7 @@ public class BlogPost {
         BlogPost blogPost = (BlogPost) o;
         return Objects.equals(id, blogPost.id) &&
                 Objects.equals(name, blogPost.name) &&
-                Objects.equals(author, blogPost.author) &&
+                Objects.equals(authorName, blogPost.authorName) &&
                 Objects.equals(championName, blogPost.championName) &&
                 Objects.equals(championDescription, blogPost.championDescription) &&
                 Objects.equals(category, blogPost.category) &&
@@ -73,7 +69,7 @@ public class BlogPost {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, author, championName, championDescription, category, tags);
+        return Objects.hash(id, name, authorName, championName, championDescription, category, tags);
     }
 
     @Override
@@ -81,7 +77,7 @@ public class BlogPost {
         return "BlogPost{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", author=" + author +
+                ", author=" + authorName +
                 ", championName='" + championName + '\'' +
                 ", championDescription='" + championDescription + '\'' +
                 ", category=" + category +

@@ -1,5 +1,7 @@
 package org.wcci.blog;
 
+import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
@@ -9,18 +11,20 @@ public class Author {
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
+    private String authorName;
+    @OneToMany(mappedBy = "authorName")
+    private Collection<BlogPost> blogPost;
     private String description;
 
     protected Author(){}
 
-    public Author(String name, String description) {
-        this.name = name;
+    public Author(String authorName, String description) {
+        this.authorName = authorName;
         this.description = description;
     }
 
     public String getName() {
-        return name;
+        return authorName;
     }
     public String getDescription(){
         return description;
@@ -33,7 +37,7 @@ public class Author {
     public String toString() {
         return "Author{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + authorName + '\'' +
                 '}';
     }
 
@@ -43,11 +47,11 @@ public class Author {
         if (o == null || getClass() != o.getClass()) return false;
         Author author = (Author) o;
         return Objects.equals(id, author.id) &&
-                Objects.equals(name, author.name);
+                Objects.equals(authorName, author.authorName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, authorName);
     }
 }

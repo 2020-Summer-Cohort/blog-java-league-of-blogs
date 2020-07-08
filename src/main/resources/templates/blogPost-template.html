@@ -23,6 +23,6 @@
 <h2 th:text="${BlogPost.name} + 's description'"></h2>
 <p th:text="${BlogPost.championDescription}"></p>
 
-<p> post written by:<a th:href="@{'/author/' + ${Author.id}}">Van</a></p>
+<p> post written by:<a th:href="@{'/author/' + ${Author.name}}">Van</a></p>
 </body>
 </html>

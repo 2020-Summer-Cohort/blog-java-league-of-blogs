@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BlogPostController {
 
     private BlogPostStorage blogPostStorage;
-    private CategoryRepository categoryRepo;
-    private AuthorRepository authorRepo;
-    private TagRepository tagRepo;
+    private CategoryStorage categoryStorage;
+    private AuthorStorage authorStorage;
+    private TagStorage tagStorage;
 
 
-    public BlogPostController(BlogPostStorage blogPostStorage, CategoryRepository categoryRepo,  AuthorRepository authorRepo, TagRepository tagRepo) {
+    public BlogPostController(BlogPostStorage blogPostStorage, CategoryStorage categoryStorage,  AuthorStorage authorStorage, TagStorage tagStorage) {
         this.blogPostStorage = blogPostStorage;
-        this.categoryRepo = categoryRepo;
-        this.authorRepo = authorRepo;
-        this.tagRepo = tagRepo;
+        this.categoryStorage = categoryStorage;
+        this.authorStorage = authorStorage;
+        this.tagStorage = tagStorage;
     }
 
     @RequestMapping("blog/{name}")
     public String showSingleBlog (@PathVariable String name, Model model){
-        model.addAttribute("Category", categoryRepo.findAll());
+        model.addAttribute("Category", categoryStorage.getAllCategories());
         model.addAttribute("BlogPost", blogPostStorage.findBlogPostByName(name));
-        model.addAttribute("Author", authorRepo.findAuthorByName(name));
-        model.addAttribute("Tag", tagRepo.findAll());
+        model.addAttribute("Author", authorStorage.findByAuthorName(name));
+        model.addAttribute("Tag", tagStorage.findAllTags());
         return "blogPost-template";
     }
 
